@@ -29,5 +29,15 @@
 
 
     //Function to check if a random number is divisible by the number 2
+    function divide($x){
+        if(($x % 2)==0){
+            return "$x is divisible by 2";
+        }
+        else{
+            return "$x is not divisible by 2";
+        }
+    }
+
+    print_r(divide(4). "<br>");
 
 ?>
