@@ -2,7 +2,7 @@
 
 include_once 'config.php';
 
-if(isset(&_POAST['submit'])) {
+if(isset(&_POST['submit'])) {
     $name = $_POST['name'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
