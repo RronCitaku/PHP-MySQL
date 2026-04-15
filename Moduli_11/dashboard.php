@@ -21,6 +21,7 @@
         }
     </style>
 </body>
+
 <?php
     include_once('config.php');
 
@@ -29,17 +30,17 @@
     $users = $getUsers->fetchAll();
 ?>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Email</th>
-            <th>Update</th>
-        </tr>
-    </thead>
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+    </table>
 </html>
 
