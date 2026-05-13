@@ -1,3 +1,34 @@
+<?php
+session_start();
+include("config.php");
+
+if(isset($_POST['login'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $query = "SELECT * FROM users WHERE username = '$username' AND password='$password'";
+    $result=mysqli_query($conn, $query);
+
+    if(mysqli_num_rows($result) > 0){
+        $user = mysqli_fetch_assoc($result);
+
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['is_admin'] = $user['is_admin'];
+
+        if($user['is_admin'] == 1){
+            header("Location: admin/dashboard.php");
+        }else{
+            header("Location: dashboard.php");
+        }
+        exit();
+    }else {
+        $error = "Invalid username or password!";
+    }
+}
+?> 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +42,7 @@
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-md-5">
-          <h2 class="mb-4 text-center">Sign Up</h2>
+          <h2 class="mb-4 text-center">Log In</h2>
 
           <?php if(isset($error)){ ?>
           <div class="alert alert-danger"><?php echo $error; ?></div>
@@ -38,7 +69,7 @@
 
 
   <button type="submit" name="login" class="btn btn-primary">Log In</button>
-  <p>
+  <p class="text-center mt-3">
     Don't you have an account?<a href="index.php">Sign Up</a>
   </p>
 
