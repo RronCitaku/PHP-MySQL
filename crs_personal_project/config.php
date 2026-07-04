@@ -1,10 +1,11 @@
 <?php
+
 $host = "localhost";
 $user = "root";
-$password = "";
-$database = "mms";
+$pass = "";
+$database = "crs";
 
-$conn = mysqli_connect($host, $user, $password, $database);
+$conn = mysqli_connect($host, $user, $pass, $database);
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());

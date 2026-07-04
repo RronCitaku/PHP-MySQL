@@ -1,0 +1,27 @@
+CREATE DATABASE IF NOT EXISTS crs;
+USE crs;
+
+CREATE TABLE users(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    is_admin TINYINT(1) DEFAULT 0
+);
+
+CREATE TABLE cars(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    brand VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    year INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    status VARCHAR(20) DEFAULT 'Available'
+);
+
+CREATE TABLE rentals(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    car_id INT NOT NULL,
+    rent_date DATE NOT NULL
+);
